@@ -1,0 +1,11 @@
+app:
+  host: arch.homework
+  image: rinatm/userservice
+  replicaCount: 1
+  db:
+    url: jdbc:postgresql://postgres/users
+    username: postgres
+    password: postgres
+  service:
+    type: ClusterIP
+    port: 8080
