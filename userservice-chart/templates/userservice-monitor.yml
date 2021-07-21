@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: userservice
+  labels:
+    app: user-service-app-service
+spec:
+  jobLabel: userservice
+  selector:
+    matchLabels:
+      app: user-service-app-service
+  endpoints:
+    - interval: 2s
+      port: web
+      path: /actuator/prometheus

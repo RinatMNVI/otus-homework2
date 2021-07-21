@@ -1,0 +1,10 @@
+fullnameOverride: postgres
+postgresqlUsername: postgres
+postgresqlPassword: postgres
+postgresqlDatabase: users
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+persistence:
+  enabled: false

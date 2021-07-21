@@ -1,6 +1,6 @@
 app:
   host: arch.homework
-  image: rinatm/userservice
+  image: rinatm/userservice:v3
   replicaCount: 1
   db:
     url: jdbc:postgresql://postgres/users

@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: user-service-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9090"
+spec:
+  rules:
+    - host: arch.homework
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: {{ .Values.app.service.port }}
+    - host: arch.homework.grafana
+      http:
+        paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: prom-grafana
+                  port:
+                    number: 80
